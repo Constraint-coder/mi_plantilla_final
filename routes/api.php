@@ -5,6 +5,10 @@ use App\Http\Controllers\auth\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ProductosController;
+use App\Http\Controllers\CategoriasController;
+use App\Http\Controllers\MarcasController;
+use App\Http\Controllers\ProveedoresController;
 
 Route::prefix('auth')->group(function () {
     Route::post('/login', [AuthenticationController::class, 'login']);
