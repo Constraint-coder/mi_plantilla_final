@@ -1,0 +1,22 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use App\Models\Proveedor;
+
+class ProveedorSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+            Proveedor::create([
+            'nombre' => 'La constancia s.a', 
+            'telefono' => 23002300,
+            
+        ]);
+    }
+}
