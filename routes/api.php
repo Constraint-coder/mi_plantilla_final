@@ -34,9 +34,8 @@ Route::middleware('auth:api')->prefix('rol-permisos')->group(function () {
     Route::delete('/eliminar-rol/{id}',[RolPermissionController::class,'eliminarRol'])->middleware('rolePermission:Super Admin');
     Route::delete('/eliminar-permiso',[RolPermissionController::class,'eliminarPermisos'])->middleware('rolePermission:Super Admin');
 });
-Route::middleware('auth:api')->prefix('rol-permisos')->group(function () {
-Route::apiResource('productos', ProductoController::class);
-Route::apiResource('categorias', CategoriaController::class);
-Route::apiResource('marcas', MarcaController::class);
-Route::apiResource('proveedores', ProveedorController::class);
-});
+
+    Route::apiResource('productos', ProductosController::class);
+    Route::apiResource('categorias', CategoriasController::class);
+    Route::apiResource('marcas', MarcasController::class);
+    Route::apiResource('proveedores', ProveedoresController::class);

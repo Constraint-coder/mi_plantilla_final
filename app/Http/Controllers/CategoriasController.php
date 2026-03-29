@@ -37,7 +37,8 @@ class CategoriasController extends Controller
 
     public function destroy($id)
     {
-        Categoria::findOrFail($id)->delete();
-        return response()->json(['message' => 'Eliminado correctamente']);
+  $categoria = Categoria::findOrFail($id);
+  $categoria->delete(); 
+  return response()->json($categoria);
     }
 }

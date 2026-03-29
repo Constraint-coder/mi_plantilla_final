@@ -44,7 +44,8 @@ class ProveedoresController extends Controller
 
     public function destroy($id)
     {
-        Proveedor::findOrFail($id)->delete();
-        return response()->json(['message' => 'Eliminado correctamente']);
+  $proveedor= Proveedor::findOrFail($id);
+  $proveedor->delete(); 
+  return response()->json($proveedor);
     }
 }

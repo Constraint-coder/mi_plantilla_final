@@ -13,7 +13,7 @@ class ProductosController extends Controller
      */
     public function index()
     {
-         return response()->json(Producto::width(['marca','proveedor','categoria']));
+         return response()->json(Producto::with(['marca','proveedor','categoria'])->get());
     }
 
     /**
@@ -75,7 +75,8 @@ class ProductosController extends Controller
      */
     public function destroy($id)
     {
-        Producto::findOrFail($id)->delete();
-        return response()->json(['message' => 'Eliminado correctamente']);
+  $producto = Producto::findOrFail($id);
+  $producto->delete(); 
+  return response()->json($producto);
     }
 }
