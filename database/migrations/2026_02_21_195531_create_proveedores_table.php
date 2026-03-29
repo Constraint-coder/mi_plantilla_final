@@ -17,6 +17,7 @@ return new class extends Migration
               $table->bigInteger('telefono')->nullable();
                $table->boolean('estado')->default('true');
                $table->timestamps();
+               $table->softDeletes();
           
         });
     }

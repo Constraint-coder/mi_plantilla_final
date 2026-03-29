@@ -36,7 +36,8 @@ class MarcasController extends Controller
 
     public function destroy($id)
     {
-        Marca::findOrFail($id)->delete();
-        return response()->json(['message' => 'Eliminado correctamente']);
+  $marca = Marca::findOrFail($id);
+  $marca->delete(); 
+  return response()->json($marca);
     }
 }

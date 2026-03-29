@@ -20,6 +20,7 @@ return new class extends Migration
             $table->bigInteger('marca_id')->constrained('marcas');
             $table->bigInteger('proveedor_id')->constrained('proveedores');      
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -5,6 +5,10 @@ use App\Http\Controllers\auth\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ProductosController;
+use App\Http\Controllers\CategoriasController;
+use App\Http\Controllers\MarcasController;
+use App\Http\Controllers\ProveedoresController;
 
 Route::prefix('auth')->group(function () {
     Route::post('/login', [AuthenticationController::class, 'login']);
@@ -30,9 +34,8 @@ Route::middleware('auth:api')->prefix('rol-permisos')->group(function () {
     Route::delete('/eliminar-rol/{id}',[RolPermissionController::class,'eliminarRol'])->middleware('rolePermission:Super Admin');
     Route::delete('/eliminar-permiso',[RolPermissionController::class,'eliminarPermisos'])->middleware('rolePermission:Super Admin');
 });
-Route::middleware('auth:api')->prefix('rol-permisos')->group(function () {
-Route::apiResource('productos', ProductoController::class);
-Route::apiResource('categorias', CategoriaController::class);
-Route::apiResource('marcas', MarcaController::class);
-Route::apiResource('proveedores', ProveedorController::class);
-});
+
+    Route::apiResource('productos', ProductosController::class);
+    Route::apiResource('categorias', CategoriasController::class);
+    Route::apiResource('marcas', MarcasController::class);
+    Route::apiResource('proveedores', ProveedoresController::class);
